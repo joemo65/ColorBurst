@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{9B076FC4-0A2C-D732-599E-20D6F6DDD505}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs" Line="64" Column="1" />
+      <File FileName="Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" Line="17" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/JosephMoore/Projects/ColorBurst/Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" relfile="Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" line="15" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ColorBurst PreferredExecutionTarget="Unity.Editor" />
+</Properties>
