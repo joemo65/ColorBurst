@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BlastScene.unity
+    path: Assets/Scenes/BurstScene.unity
     guid: e87b48c90ecca4facaf12812938a5701

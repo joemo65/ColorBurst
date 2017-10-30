@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class OrbGeneratorManagerScript : MonoBehaviour
 {
+    public GameObject LeftOrbSpawner;
+    public GameObject RightOrbSpawner;
+    public GameObject TopOrbSpawner;
+    public GameObject BottomOrbSpawner;
+
+
     private Dictionary<int, int> LevelDictionary = new Dictionary<int, int>(); // contains how many unique orbs each level should have
-   
-    private int NumberOfTriangleOrbs = 27;
-    private int NumberOfRectangleOrbs = 48;
-    private int NumberOfPentagonOrbs = 50;
-    private int NumberOfHexagonOrbs = 60;
-    private int NumberOfOctogonOrbs = 80;
 
     private void Start()
     {
@@ -80,12 +80,27 @@ public class OrbGeneratorManagerScript : MonoBehaviour
 
     private void GenerateTriangle(int numberofUniqueColoredOrbs)
     {
-        for (int i = 0; i < NumberOfTriangleOrbs; i++)
-        {
-            var color = (ColorOrbEnum)Enum.Parse(typeof(ColorOrbEnum), 
-                                   UnityEngine.Random.Range(1, numberofUniqueColoredOrbs).ToString());
+        var numberOfRows = 7;
+        var startX = 0.0f;
+        var startY = 0.0f;
 
-            GenerateOrb(color);
+        for (int i = 0; i < numberOfRows; i++)
+        {
+            var startOfRowX = startX;
+
+            for (int j = 0; j < i+1; j++)
+            {
+                var color = (ColorOrbEnum)Enum.Parse(typeof(ColorOrbEnum),
+                                  UnityEngine.Random.Range(1, numberofUniqueColoredOrbs).ToString());
+                
+                GenerateOrb(color, startX, startY);
+
+                startX += 10.0f;
+            }
+
+            //reset the startX out a little bit further than before
+            startX = startOfRowX - 10.0f;
+            startY += 10.0f;
         }
     }
 
@@ -114,18 +129,18 @@ public class OrbGeneratorManagerScript : MonoBehaviour
     /// successfully.
     /// </summary>
     /// <param name="numberOfUniqueColoredOrbs">Number of unique colored orbs.</param>
-    /// <param name="shape">Shape.</param>
     private void GenerateRandom(int numberOfUniqueColoredOrbs)
     {
         
     }
 
-    private void GenerateOrb(ColorOrbEnum color)
+    private void GenerateOrb(ColorOrbEnum color, float startX, float startY)
     {
         switch(color)
         {
             case ColorOrbEnum.Red:
-                GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                sphere.transform.position = new Vector3(startX, startY);
                 break;
             default:
                 GameObject.CreatePrimitive(PrimitiveType.Sphere);
