@@ -1,14 +1,20 @@
 ﻿<Properties StartupConfiguration="{9B076FC4-0A2C-D732-599E-20D6F6DDD505}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BurstScene/OrbGeneratorShape/TriangleOrbGeneratorShape.cs">
     <Files>
-      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs" Line="95" Column="17" />
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs" Line="75" Column="52" />
       <File FileName="Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorShape/TriangleOrbGeneratorShape.cs" Line="5" Column="14" />
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorShape/iOrbGeneratorShape.cs" Line="6" Column="2" />
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorShape/OrbGeneratorShape.cs" Line="9" Column="45" />
+      <File FileName="Assets/Scripts/BurstScene/OrbGeneratorShape/SquareOrbGeneratorShape.cs" Line="7" Column="32" />
+      <File FileName="Assets/Scripts/BurstScene/ColorOrbEnum.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/JosephMoore/Documents/GitHub/ColorBurst/ColorBurst/Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" relfile="Assets/Scripts/BurstScene/BurstSceneManagerScript.cs" line="15" column="1" />
+      <Breakpoint file="/Users/JosephMoore/Documents/GitHub/ColorBurst/ColorBurst/Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs" relfile="Assets/Scripts/BurstScene/OrbGeneratorManagerScript.cs" line="45" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

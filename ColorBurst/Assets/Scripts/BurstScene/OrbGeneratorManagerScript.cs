@@ -5,14 +5,20 @@ using UnityEngine;
 
 public class OrbGeneratorManagerScript : MonoBehaviour
 {
-    public GameObject LeftOrbSpawner;
-    public GameObject RightOrbSpawner;
-    public GameObject TopOrbSpawner;
-    public GameObject BottomOrbSpawner;
+    public GameObject OrbSpawner;
 
+    public Dictionary<int, int> LevelDictionary 
+    {
+        get
+        {
+            PopulateLevelDictionary();
+            
+            return _levelDictionary;
+        }
+    }
 
-    private Dictionary<int, int> LevelDictionary = new Dictionary<int, int>(); // contains how many unique orbs each level should have
-
+    private Dictionary<int, int> _levelDictionary = new Dictionary<int, int>(); // contains how many unique orbs each level should have
+   
     private void Start()
     {
         PopulateLevelDictionary();
@@ -20,16 +26,16 @@ public class OrbGeneratorManagerScript : MonoBehaviour
 
     private void PopulateLevelDictionary()
     {
-        if (LevelDictionary == null)
-            LevelDictionary = new Dictionary<int, int>();
+        if (_levelDictionary == null)
+            _levelDictionary = new Dictionary<int, int>();
 
-        if(LevelDictionary.Count == 0)
+        if(_levelDictionary.Count == 0)
         {
-            LevelDictionary.Add(1, 4);
-            LevelDictionary.Add(2, 5);
-            LevelDictionary.Add(3, 6);
-            LevelDictionary.Add(4, 7);
-            LevelDictionary.Add(5, 8);
+            _levelDictionary.Add(1, 4);
+            _levelDictionary.Add(2, 5);
+            _levelDictionary.Add(3, 6);
+            _levelDictionary.Add(4, 7);
+            _levelDictionary.Add(5, 8);
         }
     }
 
@@ -41,8 +47,8 @@ public class OrbGeneratorManagerScript : MonoBehaviour
 
             if(orbsRemaining == 0)
             {
-                var shape = (ShapeEnum)Enum.Parse(typeof(ShapeEnum), subLevel.ToString());
-                GenerateInitial(numberOfUnqiueColoredOrbs, shape);
+                var shape = GetShapeFromLevel(level);
+                shape.GenerateInitial(numberOfUnqiueColoredOrbs);
             }
             else
             {
@@ -56,72 +62,22 @@ public class OrbGeneratorManagerScript : MonoBehaviour
     /// </summary>
     /// <param name="numberOfUniqueColoredOrbs">Number of unique colored orbs.</param>
     /// <param name="shape">Shape.</param>
-    private void GenerateInitial(int numberOfUniqueColoredOrbs, ShapeEnum shape)
+    private OrbGeneratorShape GetShapeFromLevel(int level)
     {
-        switch(shape)
+        OrbGeneratorShape orbShape = null;
+
+        switch(level)
         {
-            case ShapeEnum.Triangle:
-                GenerateTriangle(numberOfUniqueColoredOrbs);
+            case 1:
+                orbShape = new TriangleOrbGeneratorShape();
                 break;
-            case ShapeEnum.Square:
-                GenerateSquare(numberOfUniqueColoredOrbs);
-                break;
-            case ShapeEnum.Pentagon:
-                GeneratePentagon(numberOfUniqueColoredOrbs);
-                break;
-            case ShapeEnum.Hexagon:
-                GenerateHexagon(numberOfUniqueColoredOrbs);
-                break;
-            case ShapeEnum.Octagon:
-                GenerateOctagon(numberOfUniqueColoredOrbs);
+            default:
+                orbShape = new TriangleOrbGeneratorShape();
                 break;
         }
-    }
 
-    private void GenerateTriangle(int numberofUniqueColoredOrbs)
-    {
-        var numberOfRows = 7;
-        var startX = 0.0f;
-        var startY = 0.0f;
 
-        for (int i = 0; i < numberOfRows; i++)
-        {
-            var startOfRowX = startX;
-
-            for (int j = 0; j < i+1; j++)
-            {
-                var color = (ColorOrbEnum)Enum.Parse(typeof(ColorOrbEnum),
-                                  UnityEngine.Random.Range(1, numberofUniqueColoredOrbs).ToString());
-                
-                GenerateOrb(color, startX, startY);
-
-                startX += 10.0f;
-            }
-
-            //reset the startX out a little bit further than before
-            startX = startOfRowX - 10.0f;
-            startY += 10.0f;
-        }
-    }
-
-    private void GenerateSquare(int numberofUniqueColoredOrbs)
-    {
-
-    }
-
-    private void GeneratePentagon(int numberofUniqueColoredOrbs)
-    {
-
-    }
-
-    private void GenerateHexagon(int numberofUniqueColoredOrbs)
-    {
-
-    }
-
-    private void GenerateOctagon(int numberofUniqueColoredOrbs)
-    {
-        
+        return orbShape;
     }
 
     /// <summary>
@@ -147,25 +103,4 @@ public class OrbGeneratorManagerScript : MonoBehaviour
                 break;
         }
     }
-}
-
-public enum ShapeEnum
-{
-    Triangle = 1,
-    Square = 2,
-    Pentagon = 3, 
-    Hexagon = 4,
-    Octagon = 5
-}
-
-public enum ColorOrbEnum
-{
-    Red = 1,
-    Blue = 2,
-    Yellow = 3,
-    Green = 4,
-    Orange = 5,
-    Purple = 6,
-    Pink = 7,
-    LightBlue = 8
 }
