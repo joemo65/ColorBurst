@@ -4,14 +4,24 @@ using UnityEngine;
 
 public abstract class OrbGeneratorShape : MonoBehaviour, IOrbGeneratorShape
 {
-    protected int NumberOfWaves;
+    protected int NumberOfUniqueOrbs;
     protected int NumberOfOrbs;
-    //protected List<OrbGenerationWave> Waves;
 
     public abstract void GenerateInitial(int numberOfUniqueOrbs);
-    public void GenerateOrb(ColorOrbEnum color, int startX, int startY, Vector3 directionVelocity)
+
+
+    protected void GenerateOrb(ColorOrbEnum color, Vector3 startLocation, Vector3 targetLocation)
     {
-        
+        var orb = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        var moveSpeed = 1;
+        orb.AddComponent<Rigidbody>();
+        orb.transform.position = startLocation;
+        orb.transform.position = targetLocation * (moveSpeed * Time.deltaTime);
+    }
+
+    protected ColorOrbEnum GetRandomColor()
+    {
+        return (ColorOrbEnum)Random.Range(0, NumberOfUniqueOrbs);
     }
 }
 

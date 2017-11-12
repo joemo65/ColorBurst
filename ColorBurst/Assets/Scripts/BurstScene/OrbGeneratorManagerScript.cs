@@ -69,10 +69,10 @@ public class OrbGeneratorManagerScript : MonoBehaviour
         switch(level)
         {
             case 1:
-                orbShape = new TriangleOrbGeneratorShape();
+                orbShape = new TriangleOrbGeneratorShape(4);
                 break;
             default:
-                orbShape = new TriangleOrbGeneratorShape();
+                orbShape = new TriangleOrbGeneratorShape(4);
                 break;
         }
 
@@ -88,19 +88,5 @@ public class OrbGeneratorManagerScript : MonoBehaviour
     private void GenerateRandom(int numberOfUniqueColoredOrbs)
     {
         
-    }
-
-    private void GenerateOrb(ColorOrbEnum color, float startX, float startY)
-    {
-        switch(color)
-        {
-            case ColorOrbEnum.Red:
-                var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.transform.position = new Vector3(startX, startY);
-                break;
-            default:
-                GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                break;
-        }
     }
 }

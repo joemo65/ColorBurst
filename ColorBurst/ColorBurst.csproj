@@ -109,15 +109,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BurstScene\BurstSceneManagerScript.cs" />
-    <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\ColorOrbEnum.cs" />
     <Compile Include="Assets\Scripts\BurstScene\LauncherScript.cs" />
     <Compile Include="Assets\Scripts\BurstScene\LevelManagerScript.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorManagerScript.cs" />
-    <Compile Include="Assets\Scripts\BurstScene\OrbScript.cs" />
+    <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\ColorOrbEnum.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\iOrbGeneratorShape.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\OrbGeneratorShape.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\SquareOrbGeneratorShape.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\TriangleOrbGeneratorShape.cs" />
+    <Compile Include="Assets\Scripts\BurstScene\OrbScript.cs" />
     <Compile Include="Assets\Scripts\BurstScene\PointsScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScene\MainMenuSceneScript.cs" />
   </ItemGroup>

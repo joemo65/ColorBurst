@@ -4,16 +4,47 @@ using UnityEngine;
 
 public class TriangleOrbGeneratorShape : OrbGeneratorShape
 {
-    public TriangleOrbGeneratorShape()
+    public TriangleOrbGeneratorShape(int numberOfUniqueOrbs)
     {
+        NumberOfUniqueOrbs = numberOfUniqueOrbs;
     }
 
     public override void GenerateInitial(int numberOfUniqueOrbs)
+    {        
+        GenerateWave1();
+        GenerateWave2();
+        GenerateWave3();
+    }
+
+    private void GenerateWave1()
     {
-        var startX = 0.0;
-        var startY = 0.0;
-        //var color = (ColorOrbEnum)Enum.Parse(typeof(ColorOrbEnum),
-        //              UnityEngine.Random.Range(1, numberofUniqueColoredOrbs).ToString());
-        //GenerateOrb(color, startX, startY);
+        GenerateOrb(GetRandomColor(), new Vector3(-1, -10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(0, -10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(1, -10), new Vector3(0, 0));
+
+        GenerateOrb(GetRandomColor(), new Vector3(-10, 0), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(10, 0), new Vector3(0, 0));
+
+        GenerateOrb(GetRandomColor(), new Vector3(-1, 10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(0, 10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(1, 10), new Vector3(0, 0));
+    }
+
+    private void GenerateWave2()
+    {
+        GenerateOrb(GetRandomColor(), new Vector3(-10, -10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(-10, -10), new Vector3(0, 0));
+
+        GenerateOrb(GetRandomColor(), new Vector3(10, -10), new Vector3(0, 0));
+        GenerateOrb(GetRandomColor(), new Vector3(10, -10), new Vector3(0, 0));
+    }
+
+    private void GenerateWave3()
+    {
+        GenerateOrb(GetRandomColor(), new Vector3(1, 10), new Vector3(0, 0));
+
+        GenerateOrb(GetRandomColor(), new Vector3(-10, -10), new Vector3(0, 0));
+
+        GenerateOrb(GetRandomColor(), new Vector3(10, -10), new Vector3(0, 0));
     }
 }
