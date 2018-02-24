@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B076FC4-0A2C-D732-599E-20D6F6DDD505}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
@@ -119,7 +119,9 @@
     <Compile Include="Assets\Scripts\BurstScene\OrbGeneratorShape\TriangleOrbGeneratorShape.cs" />
     <Compile Include="Assets\Scripts\BurstScene\OrbScript.cs" />
     <Compile Include="Assets\Scripts\BurstScene\PointsScript.cs" />
-    <Compile Include="Assets\Scripts\MainMenuScene\MainMenuSceneScript.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScene\MainMenuBackgroundImageScript.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScene\PlayButtonScript.cs" />
+    <Compile Include="Assets\Scripts\RainbowColorTextScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
